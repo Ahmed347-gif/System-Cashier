@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>نظام الكاشير - Inspire Workspace & Cafe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="header-content">
+        <h1>💼 كاشير Inspire Workspace & Cafe</h1>
+        <div class="header-stats">
+          <div class="stat-box">
+            <span class="stat-label">المبيعات اليوم</span>
+            <span class="stat-value" id="todaySales">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">الإجمالي</span>
+            <span class="stat-value" id="todayTotal">0.00</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="main-grid">
+        <!-- Left Side: Products & Cart -->
+        <div class="left-panel">
+          <!-- Products Section -->
+          <section class="card">
+            <div class="card-header">
+              <h2 class="section-title">🛍️ المنتجات والخدمات</h2>
+              <div class="header-actions">
+                <button id="manageProductsBtn" class="btn-icon" title="إدارة المنتجات">⚙️</button>
+                <input type="search" id="productSearch" class="search-input" placeholder="🔍 بحث..." />
+              </div>
+            </div>
+            <div id="productsGrid" class="products-grid"></div>
+            <p id="noProducts" class="empty">لا توجد منتجات متاحة</p>
+          </section>
+
+          <!-- Cart Section -->
+          <section class="card">
+            <div class="card-header">
+              <h2 class="section-title">🛒 سلة المشتريات</h2>
+              <button id="clearCartBtn" class="btn small danger">🗑️ مسح الكل</button>
+            </div>
+            <div class="cart-wrapper">
+              <table class="cart-table">
+                <thead>
+                  <tr>
+                    <th>المنتج</th>
+                    <th>الكمية</th>
+                    <th>السعر</th>
+                    <th>الإجمالي</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="cartItems"></tbody>
+              </table>
+              <p id="emptyCart" class="empty">السلة فارغة</p>
+            </div>
+            <div class="cart-summary">
+              <div class="summary-item">
+                <span>المجموع الفرعي:</span>
+                <span id="cartSubtotal">0.00</span>
+              </div>
+              <div class="discount-section">
+                <div class="discount-input-group">
+                  <input type="number" id="discountInput" class="discount-input" placeholder="خصم %" min="0" max="100" />
+                  <button id="applyDiscountBtn" class="btn small">تطبيق</button>
+                </div>
+                <div class="summary-item">
+                  <span>الخصم:</span>
+                  <span id="cartDiscount">0.00</span>
+                </div>
+              </div>
+              <div class="summary-item">
+                <span>الضريبة (14%):</span>
+                <span id="cartTax">0.00</span>
+              </div>
+              <div class="summary-item total">
+                <span>الإجمالي:</span>
+                <span id="cartTotal">0.00</span>
+              </div>
+            </div>
+            <div class="payment-section">
+              <div class="payment-methods">
+                <label class="payment-option">
+                  <input type="radio" name="paymentMethod" value="cash" checked />
+                  <span>💵 نقدي</span>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="paymentMethod" value="card" />
+                  <span>💳 كارت</span>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="paymentMethod" value="mobile" />
+                  <span>📱 محفظة إلكترونية</span>
+                </label>
+              </div>
+              <div class="customer-info">
+                <input type="text" id="customerName" class="customer-input" placeholder="اسم العميل (اختياري)" />
+                <input type="tel" id="customerPhone" class="customer-input" dir="ltr" placeholder="رقم الهاتف (اختياري)" />
+              </div>
+              <button id="checkoutBtn" class="btn primary large" disabled>✅ إتمام البيع</button>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right Side: Clients & Sales -->
+        <div class="right-panel">
+          <!-- Clients Section -->
+          <section class="card">
+            <div class="card-header">
+              <h2 class="section-title">👥 العملاء الحاليون</h2>
+              <div class="rate-box">
+                <span>💰 سعر الساعة:</span>
+                <strong id="hourlyRateLabel"></strong>
+              </div>
+            </div>
+            <form id="checkInForm" class="form compact" autocomplete="off">
+              <div class="form-row">
+                <input id="nameInput" type="text" placeholder="اسم العميل" required />
+                <input id="phoneInput" type="tel" dir="ltr" placeholder="رقم الموبايل" required />
+                <input id="checkInInput" type="datetime-local" required />
+                <button type="submit" class="btn primary">✅ تسجيل</button>
+              </div>
+            </form>
+            <div class="table-wrap">
+              <table class="table" id="clientsTable">
+                <thead>
+                  <tr>
+                    <th>م</th>
+                    <th>الاسم</th>
+                    <th>الموبايل</th>
+                    <th>وقت الدخول</th>
+                    <th>المدة</th>
+                    <th>إجراء</th>
+                  </tr>
+                </thead>
+                <tbody id="clientsTbody"></tbody>
+              </table>
+              <p id="emptyState" class="empty">📭 لا يوجد عملاء حالياً.</p>
+            </div>
+          </section>
+
+          <!-- Sales History -->
+          <section class="card">
+            <div class="card-header">
+              <h2 class="section-title">📊 سجل المبيعات</h2>
+              <div class="header-actions">
+                <button id="viewReportsBtn" class="btn-icon" title="التقارير">📈</button>
+                <button id="clearHistoryBtn" class="btn-icon danger" title="مسح السجل">🗑️</button>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table" id="salesTable">
+                <thead>
+                  <tr>
+                    <th>رقم الفاتورة</th>
+                    <th>التاريخ</th>
+                    <th>العميل</th>
+                    <th>المبلغ</th>
+                    <th>طريقة الدفع</th>
+                    <th>إجراء</th>
+                  </tr>
+                </thead>
+                <tbody id="salesTbody"></tbody>
+              </table>
+              <p id="emptySales" class="empty">لا توجد مبيعات</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Product Management Modal -->
+    <div id="productModal" class="modal hidden">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="productModalTitle">إدارة المنتجات</h2>
+          <button class="icon-button" id="closeProductModal">×</button>
+        </div>
+        <div class="products-management">
+          <div class="management-actions">
+            <button id="addNewProductBtn" class="btn primary">➕ إضافة منتج جديد</button>
+          </div>
+          <div id="productsList" class="products-list"></div>
+        </div>
+        <div id="productFormWrapper" class="hidden">
+          <form id="productForm" class="form">
+            <div class="field">
+              <label>اسم المنتج</label>
+              <input type="text" id="productName" required />
+            </div>
+            <div class="field">
+              <label>السعر (جنيه)</label>
+              <input type="number" id="productPrice" step="0.01" min="0" required />
+            </div>
+            <div class="field">
+              <label>الفئة</label>
+              <select id="productCategory">
+                <option value="workspace">Workspace</option>
+                <option value="drinks">مشروبات</option>
+                <option value="food">أطعمة</option>
+                <option value="snacks">سناكس</option>
+                <option value="other">أخرى</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>الوصف (اختياري)</label>
+              <textarea id="productDescription" rows="3"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn" id="cancelProductBtn">إلغاء</button>
+              <button type="submit" class="btn primary">حفظ</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Invoice Modal -->
+    <div id="invoiceModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-content invoice-wrapper" role="document">
+        <div class="invoice-header">
+          <div class="invoice-logo">
+            <h2>Inspire Workspace & Cafe</h2>
+            <p class="invoice-subtitle">فاتورة ضريبية</p>
+          </div>
+          <div class="invoice-number">
+            <span class="invoice-label">فاتورة رقم</span>
+            <span class="invoice-id" id="invNumber"></span>
+          </div>
+        </div>
+        
+        <div class="invoice-info-compact">
+          <div class="info-row">
+            <span>التاريخ:</span>
+            <span id="invDate"></span>
+          </div>
+          <div class="info-row" id="invCustomerRow" style="display: none;">
+            <span>العميل:</span>
+            <span id="invCustomer"></span>
+          </div>
+        </div>
+
+        <div class="invoice-details">
+          <table class="invoice-table">
+            <thead>
+              <tr>
+                <th>المنتج</th>
+                <th>الكمية</th>
+                <th>السعر</th>
+                <th>الإجمالي</th>
+              </tr>
+            </thead>
+            <tbody id="invItems"></tbody>
+          </table>
+        </div>
+
+        <div class="invoice-summary">
+          <div class="summary-row">
+            <span>المجموع الفرعي:</span>
+            <span id="invSubtotal"></span>
+          </div>
+          <div class="summary-row" id="invDiscountRow" style="display: none;">
+            <span>الخصم:</span>
+            <span id="invDiscount"></span>
+          </div>
+          <div class="summary-row" id="invTaxRow" style="display: none;">
+            <span>الضريبة (14%):</span>
+            <span id="invTax"></span>
+          </div>
+          <div class="summary-row total-row">
+            <span>الإجمالي:</span>
+            <span id="invTotalAmount"></span>
+          </div>
+        </div>
+
+        <div class="invoice-footer">
+          <p>شكراً لزيارتك - نتمنى لك يوماً سعيداً</p>
+          <p class="footer-note">هذه فاتورة إلكترونية - لا حاجة لختم</p>
+        </div>
+
+        <div class="modal-footer">
+          <button id="printInvoiceBtn" class="btn primary">🖨️ طباعة</button>
+          <button id="doneInvoiceBtn" class="btn">✓ تم</button>
+          <button id="invoiceCloseBtn" class="icon-button">×</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reports Modal -->
+    <div id="reportsModal" class="modal hidden">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>📈 التقارير والإحصائيات</h2>
+          <button class="icon-button" id="closeReportsModal">×</button>
+        </div>
+        <div class="reports-content">
+          <div class="report-stats">
+            <div class="report-stat">
+              <span class="report-label">المبيعات اليوم</span>
+              <span class="report-value" id="reportTodaySales">0</span>
+            </div>
+            <div class="report-stat">
+              <span class="report-label">إجمالي اليوم</span>
+              <span class="report-value" id="reportTodayTotal">0.00</span>
+            </div>
+            <div class="report-stat">
+              <span class="report-label">المبيعات هذا الشهر</span>
+              <span class="report-value" id="reportMonthSales">0</span>
+            </div>
+            <div class="report-stat">
+              <span class="report-label">إجمالي الشهر</span>
+              <span class="report-value" id="reportMonthTotal">0.00</span>
+            </div>
+          </div>
+          <div class="report-chart">
+            <h3>أفضل المنتجات مبيعاً</h3>
+            <div id="topProducts"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>
