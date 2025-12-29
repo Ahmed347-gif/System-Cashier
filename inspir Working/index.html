@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspire Work Space</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h2 class="logo-title">INSPIRE</h2>
+                        <span class="logo-subtitle">Work Space</span>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#booking" class="nav-link">Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reviews" class="nav-link">Rate</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-logo">
+                    <div class="hero-logo-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h1 class="hero-title">INSPIRE</h1>
+                </div>
+                <p class="hero-tagline">مساحتك للتركيز والعمل والإلهام</p>
+                <div class="hero-description">
+                    <p>مساحة عمل عصرية تجمع بين راحة الكافيه وإنتاجية المكتب</p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#booking" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Book Now 
+                    </a>
+                    <a href="#menu" class="btn btn-primary">
+                        <i class="fas fa-qrcode"></i>
+                     Menu 
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero Background Slider -->
+<div class="hero-background">
+  <div class="hero-slider" id="heroSlider">
+    <div class="slide active" style="background-image: url('images/20250828_0400_Futuristic\ Café\ Workspace_simple_compose_01k3q2z8jbf2tbh2t5etk77f44.png')">
+      <div class="slide-overlay"></div>
+    </div>
+    <div class="slide" style="background-image: url('images//20250828_0400_Futuristic\ Café\ Workspace_simple_compose_01k3q2z8jbf2tbh2t5etk77f44.png')">
+      <div class="slide-overlay"></div>
+    </div>
+    <div class="slide" style="background-image: url('images/20250828_0355_Elegant\ Workspace\ Background_simple_compose_01k3q2n3e6eepsx0n8nx89svj8.png')">
+      <div class="slide-overlay"></div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let currentIndex = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    if (i === index) {
+      slide.classList.add("active");
+    }
+  });
+}
+
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}, 4000); // كل 4 ثواني يتغير
+</script>
+
+            
+            <!-- Slider Navigation -->
+            
+            
+            <!-- Slider Indicators -->
+            <div class="slider-indicators" id="sliderIndicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+            </div>
+            
+            <div class="hero-overlay"></div>
+            <div class="floating-elements">
+                <div class="floating-icon" data-speed="2">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <div class="floating-icon" data-speed="1.5">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <div class="floating-icon" data-speed="3">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="floating-icon" data-speed="2.5">
+                    <i class="fas fa-book"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">من نحن</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        إلهام ليس مجرد كافيه عادي – إنه مساحة عمل مصممة بعناية للإنتاجية والإبداع والتركيز. 
+                        نجمع بين راحة كافيه دافئ ووظائف مساحة عمل مشتركة حديثة، لنخلق البيئة المثالية للطلاب والمحترفين والمبدعين.
+                    </p>
+                    <div class="mission-values">
+                        <div class="value-item">
+                            <i class="fas fa-bullseye"></i>
+                            <h3>التركيز</h3>
+                            <p>مناطق هادئة مخصصة وغرف دراسة للعمل العميق</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>الإنتاجية</h3>
+                            <p>مساحات محسنة ومرافق لتعزيز كفاءتك</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-couch"></i>
+                            <h3>الراحة</h3>
+                            <p>أثاث مريح وبيئة دافئة لجلسات عمل طويلة</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-images">
+                    <div class="image-grid">
+                        <div class="image-item">
+                            <div class="placeholder-image study-pod"></div>
+                            <p>غرف الدراسة</p>
+                        </div>
+                        <div class="image-item">
+                            <div class="placeholder-image coworking"></div>
+                            <p>منطقة العمل المشترك</p>
+                        </div>
+                        <div class="image-item">
+                            <div class="placeholder-image cafe-corner"></div>
+                            <p>ركن الكافيه</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>مساحة العمل المشترك</h3>
+                    <p>مكاتب مرنة مفتوحة ومحطات عمل خاصة مع كراسي مريحة ومكاتب قابلة للتعديل.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>غرف الاجتماعات</h3>
+                    <p>مساحات اجتماعات احترافية مجهزة بشاشات كبيرة وسبورات بيضاء ومؤتمرات فيديو.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>غرف الدراسة</h3>
+                    <p>مساحات هادئة وخاصة مثالية لجلسات الدراسة المركزة والعمل العميق.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3>منطقة الكافيه</h3>
+                    <p>ركن قهوة دافئ مع مشروبات فاخرة ومقاعد مريحة للعمل العادي.</p>
+                </div>
+            </div>
+            <div class="amenities">
+                <h3>مرافق إضافية</h3>
+                <div class="amenities-list">
+                    <div class="amenity-item">
+                        <i class="fas fa-wifi"></i>
+                        <span>واي فاي عالي السرعة مجاني</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-print"></i>
+                        <span>خدمات الطباعة</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-plug"></i>
+                        <span>مقابس كهربائية</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-parking"></i>
+                        <span>موقف سيارات مجاني</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">الأسعار والخطط</h2>
+            <p class="section-subtitle">اختر الخطة المناسبة لاحتياجاتك</p>
+            
+            <div class="pricing-grid">
+                <!-- Basic Plan -->
+                <div class="pricing-card basic">
+                    <div class="pricing-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3 class="plan-name">الخطة الأساسية</h3>
+                        <div class="plan-price">
+                            <span class="currency">ر.س</span>
+                            <span class="amount">25</span>
+                            <span class="period">/ساعة</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> مساحة عمل مفتوحة</li>
+                            <li><i class="fas fa-check"></i> واي فاي عالي السرعة</li>
+                            <li><i class="fas fa-check"></i> قهوة مجانية</li>
+                            <li><i class="fas fa-check"></i> مقابس كهربائية</li>
+                            <li><i class="fas fa-check"></i> موقف سيارات مجاني</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#booking" class="btn btn-outline">احجز الآن</a>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card premium featured">
+                    <div class="pricing-badge">الأكثر شعبية</div>
+                    <div class="pricing-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="plan-name">الخطة المميزة</h3>
+                        <div class="plan-price">
+                            <span class="currency">ر.س</span>
+                            <span class="amount">45</span>
+                            <span class="period">/ساعة</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> غرفة دراسة خاصة</li>
+                            <li><i class="fas fa-check"></i> واي فاي عالي السرعة</li>
+                            <li><i class="fas fa-check"></i> قهوة ومشروبات مجانية</li>
+                            <li><i class="fas fa-check"></i> خدمات طباعة</li>
+                            <li><i class="fas fa-check"></i> موقف سيارات مجاني</li>
+                            <li><i class="fas fa-check"></i> دعم فني</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#booking" class="btn btn-primary">احجز الآن</a>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card enterprise">
+                    <div class="pricing-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="plan-name">خطة الشركات</h3>
+                        <div class="plan-price">
+                            <span class="currency">ر.س</span>
+                            <span class="amount">80</span>
+                            <span class="period">/ساعة</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> غرفة اجتماعات كاملة</li>
+                            <li><i class="fas fa-check"></i> شاشة عرض وسبورة بيضاء</li>
+                            <li><i class="fas fa-check"></i> واي فاي عالي السرعة</li>
+                            <li><i class="fas fa-check"></i> قهوة ومشروبات مجانية</li>
+                            <li><i class="fas fa-check"></i> خدمات طباعة</li>
+                            <li><i class="fas fa-check"></i> موقف سيارات مجاني</li>
+                            <li><i class="fas fa-check"></i> دعم فني متخصص</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#booking" class="btn btn-outline">احجز الآن</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-info">
+                <div class="info-item">
+                    <i class="fas fa-info-circle"></i>
+                    <p>جميع الخطط تشمل الضرائب. يمكن تخصيص الخطط حسب احتياجاتك.</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <p>احجز مسبقاً للحصول على أفضل الأسعار والتوفر.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">قائمتنا</h2>
+            <div class="menu-content">
+                <div class="qr-container">
+                    <div class="qr-code">
+                        <div class="qr-placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <p>امسح للقائمة الكاملة</p>
+                        </div>
+                    </div>
+                    <p class="qr-text">امسح رمز QR أعلاه لعرض قائمتنا الكاملة مع الأسعار والوصف.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">المعرض</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-image gallery-2"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-image gallery-3"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-image gallery-4"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-image gallery-5"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-image gallery-6"></div>
+                </div>
+            </div>
+            <div class="video-tour">
+                <h3>جولة افتراضية</h3>
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle"></i>
+                    <p>جولة فيديو قريباً</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2 class="section-title">احجز مكانك</h2>
+            <div class="booking-content">
+                <div class="booking-info">
+                    <h3>احجز مساحة عملك</h3>
+                    <p>اختر من خيارات مساحة العمل المختلفة واحجز مكانك مسبقاً لضمان التوفر.</p>
+                    <div class="booking-types">
+                        <div class="type-item">
+                            <i class="fas fa-users"></i>
+                            <span>مساحة عمل مفتوحة</span>
+                        </div>
+                        <div class="type-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>غرفة اجتماعات</span>
+                        </div>
+                        <div class="type-item">
+                            <i class="fas fa-book"></i>
+                            <span>غرفة دراسة</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="booking-form" id="bookingForm">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف  - ادخل +20 قبل رقم الهاتف *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">التاريخ *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">الوقت *</label>
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="people">عدد الأشخاص *</label>
+                            <select id="people" name="people" required>
+                                <option value="">اختر</option>
+                                <option value="1">شخص واحد</option>
+                                <option value="2">شخصان</option>
+                                <option value="3">3 أشخاص</option>
+                                <option value="4">4 أشخاص</option>
+                                <option value="5+">5+ أشخاص</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">نوع مساحة العمل *</label>
+                            <select id="type" name="type" required>
+                                <option value="">اختر</option>
+                                <option value="workspace">مساحة عمل مفتوحة</option>
+                                <option value="meeting-room">غرفة اجتماعات</option>
+                                <option value="study-pod">غرفة دراسة</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">ملاحظات إضافية</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="أي متطلبات خاصة أو طلبات..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">احجز الآن</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2 class="section-title">ماذا يقول زوارنا</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"مزيج مثالي من الإنتاجية والراحة. لم أكن أكثر تركيزاً أثناء العمل من قبل!"</p>
+                    <div class="review-author">
+                        <strong>سارة م.</strong>
+                        <span>مصممة مستقلة</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"بيئة دراسة مذهلة مع قهوة رائعة. غرف الدراسة مثالية لتحضير الامتحانات!"</p>
+                    <div class="review-author">
+                        <strong>أحمد ك.</strong>
+                        <span>طالب طب</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"غرف اجتماعات احترافية وخدمة ممتازة. اجتماعات فريقنا أصبحت أكثر إنتاجية."</p>
+                    <div class="review-author">
+                        <strong>محمد ر.</strong>
+                        <span>مؤسس شركة ناشئة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">اتصل بنا</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>العنوان</h3>
+                            <p>شارع الإلهام 123<br>حي الإبداع<br>المدينة، المحافظة 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>الهاتف</h3>
+                            <p>+201032920995</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>البريد الإلكتروني</h3>
+                            <p>hello@inspirecafe.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>ساعات العمل</h3>
+                            <p>الأحد - الخميس: 7:00 ص - 10:00 م<br>الجمعة - السبت: 8:00 ص - 9:00 م</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h3>أرسل لنا رسالة</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">الاسم *</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">البريد الإلكتروني *</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">الرسالة *</label>
+                            <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">أرسل الرسالة</button>
+                    </form>
+                </div>
+            </div>
+            <div class="map-container">
+                <h3>اعثر علينا</h3>
+                <div class="map-placeholder">
+                    <i class="fas fa-map"></i>
+                    <p>تكامل خرائط جوجل</p>
+                    <p>الخريطة التفاعلية ستكون هنا</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Inspire</h3>
+                    <p>مساحتك للتركيز والعمل والإلهام</p>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#booking">الحجز</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>معلومات الاتصال</h4>
+                    <p>+2001032920995</p>
+                    <p>hello@inspirecafe.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Inspire. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
