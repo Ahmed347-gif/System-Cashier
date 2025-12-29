@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>POS </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Inspire Cahshier</h1>
+    <div class="date" id="pos-date"></div>
+  </header>
+
+  <main class="container">
+    <section class="sell-panel">
+      <div class="inputs">
+        <input id="scan-input" type="text" placeholder="اسحب الباركود أو اكتب اسم المنتج" autofocus />
+        <input id="qty-input" type="number" min="1" value="1" />
+        <button id="add-btn">إضافة</button>
+      </div>
+
+      <div class="cart">
+        <table>
+          <thead>
+            <tr>
+              <th>المنتج</th>
+              <th>السعر</th>
+              <th>الكمية</th>
+              <th>الإجمالي</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cart-body"></tbody>
+        </table>
+      </div>
+
+      <div class="totals">
+        <div>
+          <label>خصم %</label>
+          <input id="discount-input" type="number" min="0" value="0" />
+        </div>
+        <div>
+          <label>ضريبة %</label>
+          <input id="tax-input" type="number" min="0" value="0" />
+        </div>
+        <div class="summary">
+          <div>المجموع الفرعي: <strong id="sub-total">0.00</strong></div>
+          <div>الخصم: <strong id="discount-amt">0.00</strong></div>
+          <div>الضريبة: <strong id="tax-amt">0.00</strong></div>
+          <div class="grand">الإجمالي: <strong id="grand-total">0.00</strong></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="pay-btn" class="primary">دفع وطباعة</button>
+        <button id="clear-btn" class="danger">تفريغ السلة</button>
+      </div>
+    </section>
+
+    <aside class="catalog">
+      <h3>المنتجات</h3>
+      <div id="product-list" class="product-list"></div>
+    </aside>
+  </main>
+
+  <!-- إيصال للطباعة -->
+  <div id="receipt" class="receipt" aria-hidden="true">
+    <h2>Inspire</h2>
+    <div id="receipt-meta"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>منتج</th>
+          <th>سعر</th>
+          <th>كمية</th>
+          <th>إجمالي</th>
+        </tr>
+      </thead>
+      <tbody id="receipt-body"></tbody>
+    </table>
+    <div id="receipt-totals"></div>
+    <p>inspire,شكرًا لتعاملكم معنا</p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

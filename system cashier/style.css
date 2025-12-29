@@ -1,0 +1,36 @@
+:root { --bg:#0f1115; --card:#151822; --muted:#aab1c5; --text:#e9ecf1; --accent:#4f7cff; --danger:#ff5d5d; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, Tahoma; background:var(--bg); color:var(--text); }
+.topbar { display:flex; justify-content:space-between; align-items:center; padding:14px 16px; background:#0a0c10; border-bottom:1px solid #202431; }
+.container { display:grid; grid-template-columns: 2fr 1fr; gap:16px; padding:16px; }
+.sell-panel, .catalog { background:var(--card); border:1px solid #202431; border-radius:14px; padding:12px; }
+.inputs { display:flex; gap:8px; }
+.inputs input { flex:1; padding:10px; border-radius:10px; border:1px solid #263045; background:#0e1220; color:var(--text); }
+.inputs #qty-input { flex:0 0 90px; }
+.inputs button { padding:10px 14px; border:0; border-radius:10px; background:var(--accent); color:white; cursor:pointer; }
+.cart { margin-top:12px; max-height:300px; overflow:auto; }
+table { width:100%; border-collapse: collapse; }
+th, td { padding:10px; border-bottom:1px solid #22283a; text-align:right; }
+td:last-child { text-align:center; }
+.totals { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:12px; align-items:start; }
+.totals input { width:100%; padding:10px; border-radius:10px; border:1px solid #263045; background:#0e1220; color:var(--text); }
+.summary { grid-column: span 3; display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; }
+.summary .grand { grid-column: span 3; font-size:1.2rem; border-top:1px dashed #2b334a; padding-top:8px; }
+.actions { margin-top:12px; display:flex; gap:8px; }
+.actions .primary { background:var(--accent); color:white; }
+.actions .danger { background:var(--danger); color:white; }
+.catalog h3 { margin-top:0; }
+.product-list { display:grid; grid-template-columns: repeat(auto-fill,minmax(120px,1fr)); gap:10px; }
+.product { border:1px solid #263045; border-radius:12px; padding:10px; background:#0e1220; cursor:pointer; }
+.product h4 { margin:0 0 6px; font-size:0.95rem; }
+.product .sku { color:var(--muted); font-size:0.8rem; }
+.product .price { font-weight:bold; }
+
+.receipt { display:none; font: 14px monospace; color:#000; background:#fff; padding:10px; }
+@media print {
+  body > *:not(.receipt) { display:none !important; }
+  .receipt { display:block; }
+  @page { size: 80mm auto; margin: 5mm; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { border-bottom:1px dashed #999; padding:4px; text-align:left; }
+}
